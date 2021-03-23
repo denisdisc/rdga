@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="album py-5 box">
+  <div class="container">
+    <h2 class="text-center">УЧАСТВОВАТЬ в ТУРНИРЕ для НАЧИНАЮЩИХ!</h2>
+    <br>
+    <div class="row">
+      <div class="col-md-6">
+        <img src="/static/beginnerEkb.jpg" class="rounded mx-auto d-block" width=100%  alt="альтернативный текст"></a>
+      </div>
+      <div class="col-md-6">
+        <br>
+        <p style="font-size: 2vw;" class="mx auto">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ты только начинаешь
+          играть в диск-гольф? Тогда обязательно приходи на наши турниры!<br>
+          Турнир - это азарт и драйв, здесь буря эмоций борются с выдержкой и холодным расчетом, огромная мотивация к
+          хорошей игре, море опыта и отличных знакомств!<br>
+          <i>Внимание! К турнирам допускаются игроки, прошедшие минимум 2 
+          <a href="{{ url_for('cont.mclass') }}"><u>мастер-класса</u></a>!<br></i>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-1">
+      </div>
+      <div class="col-md-10">
+        <p style="font-size: 2vw;" class="mx auto">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;В Москве, Санкт-Петербурге и Екатеринбурге действует рейтинговая система отраженная в цветных браслетах. Участвуй
+          в турнирах и мастер-классах, приходи на тренировки - повышай уровень игры и побеждай в турнирах!<br>
+        </p>
+      </div>
+      <div class="col-md-1">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-1">
+      </div>
+      <div class="col-md-10">
+        {% if session['city'] == 'no' %}
+        <h3 class="text-center text-dark">Выбери город в верхнем меню для того чтобы увидеть
+          расписание ближайших турниров</h3>
+        <br>
+        {% elif session['city'] == 'Other' %}
+        <h3 class="text-center text-dark">Выбери город в верхнем меню для того чтобы увидеть
+          расписание ближайших турниров</h3>
+        <br>
+        {% elif session['city'] == 'Msc' %}
+        <p style="font-size: 2vw;" class="mx auto">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;В 2021 году в Москве
+        запланировано 10 этапов диск-гольф лиги. Узнать где и когда пройдет ближайший этап ты можешь по
+        этой <a href="http://discgolf.me/sezon-2021/" target="_blank"><i>ссылке</i></a>.</p>
+        {% elif session['city'] == 'SPb' %}
+        <p style="font-size: 2vw;" class="mx auto">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;В Санкт-Петербурге
+          вы можете, не переживая за свой уровень игры, принять участие в турнирах для новичков. В таких турнирах
+          не участуют профессиональные игроки - они организовывают турнир. На время турнира ты получишь диск для
+          игры, наставление и толковые советы, карту парка и браслет участника! Нужно настроится на 2-3 часа прогулки
+          на свежем воздухе в хорошей компании. Все это стоит - 500 рублей. Приходи, и получи необыкновенные эмоции
+          от собственных попаданий и промахов соперников! Об остальном позаботимся мы!
+          <br>
+          <br>
+          Самая свежая информация о предстоящих турнирах в <a href="https://t.me/discgolfspb" target="_blank">нашем телеграмм канале</a>.<br>
+        </p>
+        {% elif session['city'] == 'Ekb' %}
+        <p style="font-size: 2vw;" class="mx auto">Диски для игры - выдаются.<br>
+          Стоимость участия: 400 рублей.<br>
+          Ждём тебя на каждом турнире из расписания.<br>
+          Будь во время, мы начинаем в указанное время!<br>
+          <br>
+        </p>        
+        {% endif %}
+        <!--<iframe width="900" height="506" src="https://miro.com/app/live-embed/o9J_lPTa_NM=/?moveToViewport=-1654,-417,2250,1232" frameBorder="0" scrolling="no" allowFullScreen></iframe>-->
+        <div class="row">
+          <div class="col-md-12">
+            <img src="/static/season2021.jpg" class="rounded mx-auto d-block" width=100%  alt="календарь"></a>
+          </div>
+          <br>
+          <p style="font-size: 2vw;" class="mx auto">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Ждём тебя на каждом турнире из расписания.
+            Будь во время, мы начинаем в указанное время!</i></p>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row text-center">
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-2 bg-dark" style="height: 10px;">
+      </div>
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-2">
+      </div>
+    </div>
+    {% include 'steps.html' %}
+  </div>
+</div>
+{% endblock %} 

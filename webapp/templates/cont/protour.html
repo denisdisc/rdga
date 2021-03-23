@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="album py-5 box">
+  <div class="container">
+    <h2 class="text-center">УЧАСТВОВАТЬ в PRO-турнире!</h2>
+    <br>
+    <div class="row">
+      <div class="col-md-12">
+        <img src="/static/protour1.jpg" class="rounded mx-auto d-block" width=100%  alt="календарь"></a>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="row">
+      <div class="col-md-10 mx-auto">
+        <p style="font-size: 2vw;" class="mx auto">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Диск-гольф - это твоё, ты хочет бросать диск точнее и дальше, ты перерос турниры для начинающих игроков, твой уровень игры соответствует  желтому браслету и выше.... ЗдОрово!
+        Ждём тебя на турнирах для профессионалов.<br>
+        
+        Диски для игры: ты можешь купить или взять в аренду .
+        Стоимость участия: 1000 рублей.<br>
+        
+        Ждём тебя на каждом турнире из расписания.<br>
+        Будь во время! Мы начинаем в указанное время!
+        </p>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="row">
+      <div class="col-md-11 mx-auto">
+        <img src="/static/season2021.jpg" class="rounded mx-auto d-block" width=100%  alt="календарь"></a>
+      </div>
+      <br>
+      <p style="font-size: 2vw;" class="mx-auto">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Ждём тебя на каждом турнире из расписания.<br>
+        Будь во время, мы начинаем в указанное время!</i></p>
+    </div>
+    <br> 
+    <!--br>
+    {% for event in events %}
+      <br>
+      <h3>{{ event.title }}</h3>
+      <p>{{ event.info }}</p>
+      <i>{{ event.note }}</i>
+      <br>
+    {% endfor %}
+    <br>-->
+    <div class="row text-center">
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-2 bg-dark" style="height: 10px;">
+      </div>
+      <div class="col-md-2">
+      </div>
+    </div>
+    {% include 'steps.html' %}
+    <br>
+  </div>
+</div>
+{% endblock %} 

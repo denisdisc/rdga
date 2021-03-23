@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="album py-5 box">
+  <div class="container">
+    <h2 class="text-center">ПРОЙТИ МАСТЕР-КЛАСС!</h2>
+    <br>
+    <div class="row">
+      <div class="col-md-4">
+        <img src="/static/mclassEkb2.jpg" class="rounded mx-auto d-block" width=100%  alt="альтернативный текст"></a>
+      </div>
+      <div class="col-md-8">
+        <p style="font-size: 2vw;" class="mx auto">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;В 2021 году мы регулярно и бесплатно проводим мастер-классы!
+          Приходи один или с друзьями - с собой ничего не нужно!
+          Научись красиво и метко кидать фрисби, насладись красотой запущенного тобой
+          диска - это действительно клёво!</p>
+        <br>
+        {% if session['city'] == 'no' %}
+        <h3 class="text-center text-dark">Узнайте, как пройти мастер-класс выбрав город в главном меню.</h3>
+        <br>
+        {% elif session['city'] == 'Other' %}
+        <h3 class="text-center text-dark">Узнайте, как пройти мастер-класс выбрав город в главном меню.</h3>
+        <br>
+        {% elif session['city'] == 'Msc' %}
+        <p style="font-size: 2vw;" class="mx auto">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Мастер-классы в Москве проводяться в диск-гольф парке Сколково.
+          Время и условия проведения мастер-классов можно уточнить по контактам ниже.</p>
+        {% elif session['city'] == 'SPb' %}
+        <p style="font-size: 2vw;" class="mx auto">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Мастер-классы в Санкт-Петербурге проводяться в Ланском саду по четвергам.<br>
+          Участие в мастер-классе бесплатное.<br>
+          Подробности в <a href="https://t.me/discgolfspb" target="_blank">нашем телеграмм канале</a>.<br>
+          Время начала - 19:00.<br>
+          Длительность - 1 час.</p>
+        {% elif session['city'] == 'Ekb' %}
+        <p style="font-size: 2vw;" class="mx auto">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Мастер-классы в Екатеринбурге проводяться в парках, в центре города.
+          Время: каждую <i><u>пятницу</u></i>, <i><u>субботу</u></i> и <i><u>воскресенье</u></i> с <i><u>18:00</u></i>.<br>
+          Место: <i><u>Екатеринбург, Уктус, ул. Зимняя 27</u></i> - шикарный газон перед кафе!<br>
+          <a href="https://www.instagram.com/p/CEZRH2pAov2/?igshid=1negj4pcwi3yg" target="_blank"><i>Здесь</i></a> 
+          можно посмотреть, как весело и интересно на наших мастер-классах!</p>
+        {% endif %}
+      </div>
+    </div>
+    <br>
+    <div class="row text-center">
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-2 bg-dark" style="height: 10px;">
+      </div>
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-2">
+      </div>
+    </div>
+    {% include 'steps.html' %}
+  </div>
+</div>
+{% endblock %} 

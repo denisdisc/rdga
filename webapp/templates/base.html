@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="shortcut icon" href="/static/rdga.ico">
+    <style>
+      .page-holder {
+        min-height: 100vh;
+      }
+      .bg-cover {
+        background-size: cover !important;
+        background: url(/static/bg1.png); /* bg2.jpg   bg1.png */
+      }
+      .box
+      {
+        position: relative;
+        background: rgba(255, 255, 255, .2);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, .3);
+      }
+      .box-intens
+      {
+        position: relative;
+        background: rgba(255, 255, 255, .8);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, .3);
+      }
+      .scale {
+        transition: 0.5s; /* Время эффекта */
+      }
+      .scale:hover {
+        transform: scale(1.6); /* Увеличиваем масштаб */
+      }
+      .position-relative {
+        position: fixed;
+      }
+     </style>
+    <title>{{ g.title }}</title>
+  </head>
+  
+  <body>
+    <div class="page-holder bg-cover">
+      <div class="row">
+        <br>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-7 my-auto">
+            <h1 class="text-dark ml-3">ДИСК-ГОЛЬФ в РОССИИ</h1>
+          </div>
+          <div class="col-md-5">
+            <div class="row">
+            {% if current_user.is_authenticated %}
+              <div class="col-md-5 mx-auto">
+                <p class="my-2" style="font-size: 1.5vw;">Привет, {{ current_user.username }}</p>
+              </div>
+              <div class="col-md-2 mx-3 align-top">
+                {% if current_user.is_admin %}
+                  <a href="{{ url_for('admin.admin_index') }}" class="btn btn-light" role="button" aria-disabled="true">Админка</a>
+                {% endif %}
+              </div>
+              <div class="col-md-2 mx-4 align-top">
+                <a href="{{ url_for('user.logout') }}" class="btn btn-light" role="button" aria-disabled="true">Выйти</a>
+                  <a class="nav-link" href="{{ url_for('user.logout') }}"></a>
+              </div>
+            {% else %}
+              <div class="col-md-3 mx-auto align-top">
+              </div>
+              <div class="col-md-4 mx-auto align-top">
+                <a href="{{ url_for('user.register') }}" class="btn btn-light" role="button" aria-disabled="true">Зарегистрироваться</a>
+              </div>
+              <div class="col-md-2 mx-4 align-top">
+                <a href="{{ url_for('user.login') }}" class="btn btn-light" role="button" aria-disabled="true">Войти</a>
+              </div>
+            {% endif %}
+          </div>
+          </div>
+        </div>
+        <div class="sticky-top">
+        {% include 'topmenu.html' %}
+        </div>
+        <nav aria-label="breadcrumb" class="ml-4 my-3">
+          <p style="font-size: 1.8vw;">
+            {% for breadcrumb in breadcrumbs %}
+              <a href="{{ breadcrumb.url }}">{{ breadcrumb.text }}</a>
+              {{ '>' if not loop.last }}
+            {% endfor %}
+          </p>
+        </nav>
+        <main role="main">
+          {% block content %}{% endblock %}
+        </main>
+      </div>
+      <footer>
+        <div class="container">
+          <!--<p class="float-right">
+            <a href="#">Наверх ↑</a>
+          </p>-->
+          <div class="row align-items-center">
+            <div class="col-sm-4 offset-md-1 py-4">
+              <h3 class="text-black">Контакты</h3>
+              <ul class="list-unstyled">
+                {% if session['city'] == 'no' %}
+                  <li><a href="https://www.instagram.com/discgolf_spb/" class="text-secodary"><h5>Инстаграм: discgolf_russia</h5></a></li>
+                  <li><a href="https://vk.com/discgolfspb" class="text-secodary"><h5>ВК: rdga</h5></a></li>
+                  <li><a href="#" class="text-secodary"><h5>Email: example@gmail.com</h5></a></li>
+                {% elif session['city'] == 'Msc' %}
+                  <li><a href="https://www.instagram.com/discgolf_spb/" class="text-secodary"><h5>Инстаграм: discgolf.msk</h5></a></li>
+                  <li><a href="https://vk.com/discgolfspb" class="text-secodary"><h5>ВК: discgolfmsk</h5></a></li>
+                  <li><a href="#" class="text-secodary"><h5>Email: discgolfmsk@gmail.com</h5></a></li>
+                {% elif session['city'] == 'SPb' %}
+                  <li><a href="https://www.instagram.com/discgolf_spb/" class="text-secodary"><h5>Инстаграм: discgolf_spb</h5></a></li>
+                  <li><a href="https://vk.com/discgolfspb" class="text-secodary"><h5>ВК: discgolfspb</h5></a></li>
+                  <li><a href="#" class="text-secodary"><h5>Email: discgolfspb@gmail.com</h5></a></li>
+                {% elif session['city'] == 'Ekb' %}
+                <li><a href="https://www.instagram.com/discgolf_ekb/" class="text-secodary"><h5>Инстаграм: discgolf_ekb</h5></a></li>
+                <li><a href="https://vk.com/discgolf_ekb" class="text-secodary"><h5>ВК: discgolfekb</h5></a></li>
+                <li><a href="#" class="text-secodary"><h5>Email: ffds.info@ya.ru</h5></a></li>
+                {% endif %}
+              </ul>
+            </div>
+            <div class="col-4 offset-md-1">
+              <img src="/static/rdga.png" class="float-right aligin-center" alt="logo" width="120" height="120">
+            </div>
+          </div>
+        </div>
+      <div class="row">
+        <br>
+      </div>
+      </footer>
+      
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script>document.cookie = "ex=1;";
+        if (!document.cookie)
+        {
+          alert("Этот сайт требует включенных cookies для своей корректной работы")
+        }</script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </div>
+  </body>
+</html>

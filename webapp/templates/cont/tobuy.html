@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="album py-5 box">
+  <div class="container">
+    <h2 class="text-center">ДИСКИ для ТОЧНЫХ ПОПАДАНИЙ и НЕВЕРОЯТНЫХ ТРАЕКТОРИЙ!</h2>
+    <br>
+    <div class="row">
+      <div class="col-md-6">
+        <img src="/static/disc.jpg" class="rounded mx-auto d-block" width=100% alt="альтернативный текст"></a>
+      </div>
+      <div class="col-md-6">
+        <p style="font-size: 2vw;" class="mx auto">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Возможно твой первый
+          диск был куплен в спорттоварах или найден на антрисолях, в лучшем случае это диск из ДЕКАТЛОНА. Начало положено
+          и пора задуматься над приобретением диска, который будет следовать твоим желаниям и лететь куда ты хочешь.<br>
+          Диски ты легко сможешь заказать через интернет либо купить пощупав в ближайщем к тебе магазине.<br>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-1">
+      </div>
+      <div class="col-md-10">
+        {% if session['city'] == 'no' %}
+          <h3 class="text-center text-dark">Выбери город в верхнем меню для того чтобы увидеть
+            адрес ближайшего магазина</h3>
+          <br>
+        {% elif session['city'] == 'Other' %}
+          <h3 class="text-center text-dark">Выбери город в верхнем меню для того чтобы увидеть
+            адрес ближайшего магазина</h3>
+          <br>
+        {% elif session['city'] == 'Msc' %}
+          <p style="font-size: 2vw;" class="mx auto">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Используй <a href="http://discgolf.me/sezon-2021/" target="_blank"><i>эти контакты</i></a>
+            , чтобы уточнить где можно приобрести диски в Москве!</p>
+          <br>
+        {% elif session['city'] == 'SPb' %}
+          <p style="font-size: 2vw;" class="mx auto">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;В Санкт-Петербурге
+            ты можешь приобрести диски в магазине на территории центра активного отдыха "Туутари парк".<br>
+            Уточнить время работы магазина можно через контакты внизу этой страницы.</p>
+        {% elif session['city'] == 'Ekb' %}
+          <p style="font-size: 2vw;" class="mx auto">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Товары в магазине нашего города:<br>
+            - диски для игры в диск-гольф;<br>
+            - диск-гольф сувениры;<br>
+            Расположение магазина: г. Екатеринбург, ул.Зимняя, д. 27 (пункт проката Уктус)
+            </p>
+        {% elif session['city'] == 'NN' %}
+        {% endif %}
+      </div>
+      <div class="col-md-1">
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-1">
+      </div>
+      <div class="col-md-10">
+        <p style="font-size: 2vw;" class="mx auto">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Товары под заказ:</b><br>
+          - Диски для игры в диск-гольф;<br>
+          - Корзины для оборудования диск-гольф парков;<br>
+          - Складные, тренировочные корзины для игры в диск-гольф;<br>
+          - Диск-гольф сувениры;<br>
+          <b>Предоставляемые услуги:</b><br>
+          - Проведение диск-гольф турниров (семейных, корпоративных, дружеских)<br>
+          - Индивидуальные и групповые тренировки<br>
+          - Секции<br>
+          
+          Наши координаты для заказа указаны внизу страницы.
+          <i>Форма отправки заявки (имя, телефон, заинтересовавший продукт, кнопка отправить)</i>
+          </p>
+          <br>
+      </div>
+      <div class="col-md-1">
+      </div>
+    <br>
+  </div>
+</div>
+{% endblock %}    

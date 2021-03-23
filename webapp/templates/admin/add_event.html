@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <div class="alert alert-warning" role="alert">
+    {% for message in messages %}
+      {{ message }}<br>
+    {% endfor %}
+  </div>
+  {% endif %}
+{% endwith %}
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="col-8">
+      {% for event in events %}
+        <br>
+        <h3>{{ event.title }}</h3>
+        <p>{{ event.info }}</p>
+        <i>{{ event.note }}</i>
+        <br>
+      {% endfor %}
+    </div>
+    <br>
+    <div class="col-4">
+      <a class="btn btn-primary" href="/admin/add-event" role="button">Добавить еще</a>
+      <a class="btn btn-primary" href="#" role="button">Посмотреть</a>
+    </div>
+  </div>
+</div>
+{% endblock %}    

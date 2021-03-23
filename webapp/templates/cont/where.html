@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="album py-5 box">
+  <div class="container">
+    <h2 class="text-center">ИГРАТЬ САМОМУ и С ДРУЗЬЯМИ!</h2>
+    <br>
+    <div class="row">
+      <div class="col-md-6">
+        <img src="/static/about2.jpg" class="rounded mx-auto d-block" width=100%  alt="альтернативный текст"></a>
+      </div>
+      <div class="col-md-6">
+        <p style="font-size: 2vw;" class="mx auto">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Парки для игры в диск-гольф
+          обыкновенно общедоступны. Ты всегда можешь потренироваться сам или сыграть в диск-гольф с друзьями.<br>
+          Для игры каждому участнику понадобиться:<br>
+          - минимум один диск для игры<br>
+          - знание основных правил диск-гольфа<br>
+          <br>
+          <i><u>Краткие правила диск-гольфа</u></i>
+        <br>
+        <br>
+        </p>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-1">
+      </div>
+      <div class="col-md-10">
+        {% if session['city'] == 'no' %}
+        <h3 class="text-center text-dark">Найдите ближайший парк выбрав город в главном меню.</h3>
+        <br>
+        {% elif session['city'] == 'Other' %}
+        <h3 class="text-center text-dark">Найдите ближайший парк выбрав город в главном меню.</h3>
+        <br>
+        {% elif session['city'] == 'Msc' %}
+        <p style="font-size: 2vw;" class="mx auto">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;В Москве диск-гольф
+        парк расположен на территории Сколково. Прекрасный игровой ландшафт, ушоженный газон и тишина вокруг располагают
+        к игре!</p>
+        {% elif session['city'] == 'SPb' %}
+        <p style="font-size: 2vw;" class="mx auto">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;В Санкт-Петербурге
+          множество мест для игры в диск-гольф! В городе и рядом с ним расположены парки разного уровня.<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- самый крупный парк расположен на территории центра активного
+          отдыха "Туутари парк". Парк открыт в летний сезон с 9:00 до 21:00. Стоимость посещения - 300р. В парке
+          проводятся регулярные открытые соревнования регионального и федерального уровня, в том числе и Чемпионат России!<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- диск-гольф парк в загородном клубе "Дача". Время работы и
+          стоимость посещения можно уточнить у администрации комплекса.<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- старейший в России диск-гольф парк на территории санатория 
+          "Дюны" был открыт в 2009 году! В настоящий момент территория санатория не доступна.<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- планируется к открытию в 2021-2022 году первый городской
+          диск-гольф парк! Парк будет распологаться рядом с развязкой ЗСД-Приморский-Савушкина - на берегу Большой Невки!<br>
+          За игровыми событиями в парках Санкт-Петербурга можно следить в <a href="https://t.me/discgolfspb" target="_blank">нашем телеграмм канале</a>.<br>
+        </p>
+        {% elif session['city'] == 'Ekb' %}
+        <p style="font-size: 2vw;" class="mx auto">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Мастер-классы в
+          Екатеринбурге проводяться в парках, в центре города.<br>
+          Время: каждую <i><u>пятницу</u></i>, <i><u>субботу</u></i> и <i><u>воскресенье</u></i> с <i><u>18:00</u></i>.<br>
+          Место: <i><u>Екатеринбург, Уктус, ул. Зимняя 27</u></i> - шикарный газон перед кафе!<br>
+          <a href="https://www.instagram.com/p/CEZRH2pAov2/?igshid=1negj4pcwi3yg" target="_blank"><i>Здесь</i></a> 
+          можно посмотреть, как весело и интересно на наших мастер-классах!</p>
+        {% endif %}
+      </div>
+      <div class="col-md-1">
+      </div>
+    </div>
+    <br>
+    <div class="row text-center">
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-2 bg-dark" style="height: 10px;">
+      </div>
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-2">
+      </div>
+    </div>
+    {% include 'steps.html' %}
+  </div>
+</div>
+{% endblock %} 

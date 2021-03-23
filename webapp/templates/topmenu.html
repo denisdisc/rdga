@@ -1,0 +1,62 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-light box-intens">
+  <a class="navbar-brand ml-3" href="/"><h4>Главная</h4></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto ml-2">
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('cont.tobuy') }}"><h4>Магазин</h4></a>
+      </li>
+      <li class="nav-item ml-2">
+        <a class="nav-link" href="{{ url_for('cont.corp') }}"><h4>Компаниям</h4></a>
+      </li>
+      <li class="nav-item ml-2">
+        <a class="nav-link" href="{{ url_for('cont.sponsor') }}"><h4>Спонсировать</h4></a>
+      </li>
+    </ul>
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+        <a style="font-size: 1.6vw;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {% if session['city'] == 'no' %}
+            Выбирите город
+          {% elif session['city'] == 'Msc' %}
+            Москва
+          {% elif session['city'] == 'SPb' %}
+            Санкт-Петербург
+          {% elif session['city'] == 'Ekb' %}
+            Екатеринбург
+          {% elif session['city'] == 'NN' %}
+            Нижний Новгород
+          {% elif session['city'] == 'Blg' %}
+            Белгород
+          {% elif session['city'] == 'Other' %}
+            Выбирите город
+          {% endif %}
+        </a>
+        <div class="nav-item dropdown"> <!--<button class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Выбирите город</button>-->
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{{ url_for('cont.city_content', city_id='Msc')}}">Москва</a>
+            <a class="dropdown-item" href="{{ url_for('cont.city_content', city_id='SPb')}}">Санкт_Петербург</a>
+            <a class="dropdown-item" href="{{ url_for('cont.city_content', city_id='Ekb')}}">Екатеринбург</a>
+            <a class="dropdown-item" href="{{ url_for('cont.city_content', city_id='NN')}}">Нижний Новгород</a>
+            <a class="dropdown-item" href="{{ url_for('cont.city_content', city_id='Blg')}}">Белгород</a>
+            <a class="dropdown-item" href="{{ url_for('cont.city_content', city_id='Other')}}">Другой город</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Построить парк</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!--
+<nav aria-label="breadcrumb" class="ml-4">
+  <p>
+    {% for breadcrumb in breadcrumbs %}
+      <a href="{{ breadcrumb.url }}">{{ breadcrumb.text }}</a>
+      {{ '/' if not loop.last }}
+    {% endfor %}
+  </p>
+</nav>
+-->
